@@ -7,6 +7,8 @@ export default async function Page() {
       <h2>Список вакансий: </h2>
       <p>Прораб...</p>
       <p>Парикмахер...</p>
+
+      <footer></footer>
     </div>
   );
 }

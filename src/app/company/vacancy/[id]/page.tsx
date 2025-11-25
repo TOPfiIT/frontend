@@ -1,4 +1,4 @@
-import styles from "../company.module.scss";
+import styles from "../../company.module.scss";
 export default async function Page({
   params,
 }: {

@@ -1,4 +1,4 @@
-import styles from "styles/auth.module.scss";
+import styles from "styles/auth.module.scss"; // стили, как в авторизации
 export default async function Page({
   params,
 }: {
