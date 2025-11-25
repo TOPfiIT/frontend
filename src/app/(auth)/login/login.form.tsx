@@ -16,8 +16,14 @@ export default function LoginForm() {
       const response = await login(formData);
       console.log(response);
       // Редирект или сообщение об успехе
-    } catch (error) {
-      console.error("Registration failed:", error);
+    } catch (error: any) {
+      const msg = error.response?.data.error;
+      const notExistMsg = "[AuthService] company not found";
+      const incorrectPasswordMsg = "[AuthService] invalid password";
+      if (msg == notExistMsg) console.log("Login failed: company not found");
+      else if (msg == incorrectPasswordMsg)
+        console.log("Login failed: invalid password");
+      else console.error("Login failed: ", msg);
     }
   };
 

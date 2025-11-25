@@ -2,7 +2,8 @@ import { ApiRoutes } from "./constants";
 import axiosInstance from "./instance";
 
 export const login = async (request: AuthRequest) => {
-  await axiosInstance.post(ApiRoutes.LOGIN, request);
+  const { data } = await axiosInstance.post(ApiRoutes.LOGIN, request);
+  return data;
 };
 
 export const logout = async () => {
@@ -10,10 +11,8 @@ export const logout = async () => {
 };
 
 export const register = async (request: AuthRequest) => {
-  console.log(request);
   const { data } = await axiosInstance.post(ApiRoutes.REGISTER, request);
-
-  return data; // ?
+  return data;
 };
 
 export const getSession = async () => {

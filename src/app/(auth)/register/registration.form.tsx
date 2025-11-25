@@ -4,6 +4,14 @@ import { useState } from "react";
 import styles from "styles/auth.module.scss";
 import { register } from "@/api/auth";
 import Link from "next/link";
+import { AxiosError } from "axios";
+
+interface ApiErrorResponse {
+  message: string;
+  statusCode: number;
+  error?: string;
+  details?: any;
+}
 
 export default function RegistrationForm() {
   const [formData, setFormData] = useState<AuthRequest>({
@@ -17,8 +25,12 @@ export default function RegistrationForm() {
       const response = await register(formData);
       console.log(response);
       // Редирект или сообщение об успехе
-    } catch (error) {
-      console.error("Registration failed:", error);
+    } catch (error: any) {
+      const msg = error.response?.data.error;
+      const existsMsg = "[AuthService] company already exists";
+      if (msg == existsMsg)
+        console.log("Registration failed: company already exists");
+      else console.error("Registration failed: ", msg);
     }
   };
 
