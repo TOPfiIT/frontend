@@ -1,1 +1,21 @@
-//
+@use "../app/globals.scss" as *;
+
+.authBox {
+  display: flex;
+  flex-direction: column;
+  background-color: $light-dark-color;
+  color: white;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.accountLink {
+  color: $active-color;
+}
+
+.privacyLink {
+  color: $brand-color;
+}
