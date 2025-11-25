@@ -2,13 +2,13 @@ import styles from "../company.module.scss";
 export default async function Page({
   params,
 }: {
-  params: Promise<{ vacancy: string }>;
+  params: Promise<{ id: string }>;
 }) {
-  const { vacancy: vacancy } = await params;
+  const { id: id } = await params;
   return (
     <div className={styles.companyPage}>
       <button>Назад</button>
-      <h1>Страница вакансии {vacancy}</h1>
+      <h1>Страница вакансии {id}</h1>
     </div>
   );
 }

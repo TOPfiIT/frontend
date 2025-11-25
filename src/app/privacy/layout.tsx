@@ -1,4 +1,4 @@
-export default function RoomLayout({
+export default function PrivacyPageLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -6,7 +6,7 @@ export default function RoomLayout({
   return (
     <html lang="en">
       <body>
-        <header>This is room header</header>
+        <header>This is privacy page header</header>
         <main>{children}</main>
       </body>
     </html>

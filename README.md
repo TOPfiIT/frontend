@@ -7,6 +7,9 @@
 
 - /login
 - /register
-- /company/{name}
-- /company/{name}/{vacancy}
-- /room/{id}
+- /company/ TOKEN
+- /company/vacanсy/{id}
+- /privacy
+
+- /company/vacancy/{id}/room - реф ссылка (з)
+- /room - само интервью TOKEN

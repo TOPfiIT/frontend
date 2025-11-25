@@ -1,4 +1,4 @@
-import styles from "../auth.module.scss";
+import styles from "styles/auth.module.scss";
 
 export default function Page() {
   return <h1>Register page</h1>;
