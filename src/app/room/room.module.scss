@@ -1,0 +1,239 @@
+@use "../globals.scss" as *;
+
+// layout styles
+.header {
+    margin: 5px 15px 15px 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+}
+
+.brand, .status, .topic, .statusTime, .statusProgressBar {
+    display: flex;
+    flex-wrap: wrap;
+    align-self: center;
+}
+
+.logoContainer {
+    width: 40px;
+    height: 40px;
+}
+
+.nameContainer {
+    align-self: center;
+    max-height: 40px;
+}
+
+.name {
+    margin: auto 0 auto 10px;
+    font-size: $title;
+}
+
+.status {
+    position: absolute;
+    left: calc(50% - (425px / 2));
+}
+
+.status-time {
+    margin-right: 5px;
+}
+
+.timerContainer {
+    max-height: 40px;
+}
+
+.timer {
+    background-color: $light-dark-color;
+    padding: 5px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    margin-right: 3px;
+    max-height: 40px;
+}
+
+.timeContainer {
+    min-width: 154px;
+    background-color: $light-dark-color;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    max-height: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.time {
+    color: $active-color;
+    font-weight: $bold;
+    display: inline;
+    margin-inline: auto;
+}
+
+.progressBar {
+    width: 180px;
+    min-height: 40px;
+    background-color: $light-dark-color;
+    border-radius: 5px;
+    margin-inline: 5px 3px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.progress {
+    width: 170px;
+    height: 16px;
+    margin: 12px auto;
+    box-sizing: border-box;
+    border-radius: 50px;
+    border: solid $grey-color 3px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+}
+
+.progressLine {
+    min-height: 10px;
+    background-color: $brand-color;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+}
+
+.progressCount {
+    background-color: $light-dark-color;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    max-height: 40px;
+    width: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.counter {
+    color: $active-color;
+    font-weight: $bold;
+    display: inline;
+    margin-inline: auto;
+}
+
+.bookContainer {
+    max-height: 40px;
+}
+
+.book {
+    margin: 5px 0;
+}
+
+.topicName, .topicLevel, .companyName {
+    font-weight: $bold;
+    margin-right: 10px;
+}
+
+
+// page styles
+
+// general
+.main {
+    display  : flex;
+    flex-wrap: wrap;
+
+}
+
+.taskSpace, .chatSpace {
+    background-color: $light-dark-color;
+    height: calc(100vh - 64.09px - 15px);
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+// Task space
+.taskSpace {
+    width           : calc(31.25% - 0.78125%);
+    margin-left     : 0.78125%;
+}
+
+
+
+
+// Code space
+.codeSpace {
+    width           : calc(37.5% - (2 * 0.78125%));
+    height: calc(100vh - 64.09px - 15px);
+    margin-inline   : 0.78125%;
+}
+
+.code {
+    height: 60%;
+    background-color: $light-dark-color;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.actionBar {
+    background-color: $grey-color;
+    padding: 5px 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 20px;
+    border-radius: 15px 15px 0 0;
+    -webkit-border-radius: 15px 15px 0 0;
+    -moz-border-radius: 15px 15px 0 0;
+    -ms-border-radius: 15px 15px 0 0;
+    -o-border-radius: 15px 15px 0 0;
+}
+
+.actionBar p {
+    margin: 0;
+}
+
+.barNameWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 5px;
+    align-items: center;
+}
+
+.barName {
+    font-weight: $bold;
+}
+
+.result {
+    height: calc(40% - 15px);
+    background-color: $light-dark-color;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+
+// Chat Space
+.chatSpace {
+    width           : calc(31.25% - 0.78125%);
+    margin-right    : 0.78125%;
+}
