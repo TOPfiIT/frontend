@@ -5,10 +5,15 @@ import styles from "./room.module.scss";
 import CodeEditor from "./CodeEditor";
 import LanguageSelector from "./LanguageSelector";
 import { useClipboardMonitor } from "hooks/useClipboardMonitor";
+// import { useExtensionDetector } from "hooks/useExtensionDetector";
 import toast from "react-hot-toast";
 
 export default function Page() {
   const [currentLanguage, setCurrentLanguage] = useState("javascript");
+
+  if (typeof window !== 'undefined') {
+    (window as any).toast = toast;
+  }
 
   const monitor = useClipboardMonitor({
     minLengthToRecord: 2,
@@ -30,21 +35,31 @@ export default function Page() {
     },
   });
 
+  // Инициализация детектора расширений
+  // const extensionDetector = useExtensionDetector();
+
   const handleLanguageChange = (language: string) => {
     setCurrentLanguage(language);
   };
 
   // ОТПРАВИТЬ МЕТРИКИ
-  async function finishInterview() {
-    const metrics = monitor.getMetrics();
-    const resp = await monitor.sendMetrics("/api/submit-metrics");
-    if (!resp.ok) {
-      console.error("Metrics send failed", resp.error);
-    } else {
-      console.log("Metrics sent");
-    }
-    console.log("METRICS JSON", metrics);
-  }
+  // async function finishInterview() {
+  //   const metrics = monitor.getMetrics();
+  //   const resp = await monitor.sendMetrics("/api/submit-metrics");
+  //   if (!resp.ok) {
+  //     console.error("Metrics send failed", resp.error);
+  //   } else {
+  //     console.log("Metrics sent");
+  //   }
+  //   console.log("METRICS JSON", metrics);
+  // }
+
+  // Функция для получения метрик (для будущей отправки)
+  // const getExtensionMetrics = () => {
+  //   const metrics = extensionDetector.getMetrics();
+  //   console.log('Extension metrics:', metrics);
+  //   return metrics;
+  // };
 
   return (
     <main className={styles.main}>
