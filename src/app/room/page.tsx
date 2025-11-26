@@ -4,12 +4,42 @@ import { useState, useEffect } from "react";
 import styles from "./room.module.scss";
 import CodeEditor from "./CodeEditor";
 import LanguageSelector from "./LanguageSelector";
+import { useClipboardMonitor } from "hooks/useClipboardMonitor";
+// import { useExtensionDetector } from "hooks/useExtensionDetector";
+import toast from "react-hot-toast";
 
 import useSse from "hooks/useSse";
 
 export default function Page() {
   const [currentLanguage, setCurrentLanguage] = useState("javascript");
   const chat = useSse(`/chat`);
+
+  if (typeof window !== 'undefined') {
+    (window as any).toast = toast;
+  }
+
+  const monitor = useClipboardMonitor({
+    minLengthToRecord: 2,
+
+    onEvent(rec) {
+      // if (rec.type === "copy") {
+      //   toast.success(`Скопировано: "${rec.snippet}"`);
+      // }
+
+      if (rec.type === "paste") {
+        if (rec.source === "external") {
+          toast.error(`Внешняя вставка (${rec.length} символов)`);
+        } // else if (rec.source === "internal") {
+        //   toast(`Вставлен скопированный текст`);
+        // } else {
+        //   toast(`Вставлено`);
+        // }
+      }
+    },
+  });
+
+  // Инициализация детектора расширений
+  // const extensionDetector = useExtensionDetector();
 
   const handleLanguageChange = (language: string) => {
     setCurrentLanguage(language);
@@ -19,6 +49,24 @@ export default function Page() {
     if (!chat) return;
     console.log(chat);
   }, [chat]);
+  // ОТПРАВИТЬ МЕТРИКИ
+  // async function finishInterview() {
+  //   const metrics = monitor.getMetrics();
+  //   const resp = await monitor.sendMetrics("/api/submit-metrics");
+  //   if (!resp.ok) {
+  //     console.error("Metrics send failed", resp.error);
+  //   } else {
+  //     console.log("Metrics sent");
+  //   }
+  //   console.log("METRICS JSON", metrics);
+  // }
+
+  // Функция для получения метрик (для будущей отправки)
+  // const getExtensionMetrics = () => {
+  //   const metrics = extensionDetector.getMetrics();
+  //   console.log('Extension metrics:', metrics);
+  //   return metrics;
+  // };
 
   return (
     <main className={styles.main}>
@@ -34,6 +82,7 @@ export default function Page() {
           </div>
         </div>
       </div>
+
       <div className={styles.codeSpace}>
         <div className={styles.code}>
           <div className={styles.actionBar}>
@@ -52,13 +101,12 @@ export default function Page() {
               />
             </div>
           </div>
+
           <div className={styles.editorWrapper}>
-            <CodeEditor
-              mode={currentLanguage} // Передаем выбранный язык
-              height="100%"
-            />
+            <CodeEditor mode={currentLanguage} height="100%" />
           </div>
         </div>
+
         <div className={styles.result}>
           <div className={styles.actionBar}>
             <div className={styles.barNameWrapper}>
@@ -72,6 +120,7 @@ export default function Page() {
           </div>
         </div>
       </div>
+
       <div className={styles.chatSpace}>
         <div className={styles.code}>
           <div className={styles.actionBar}>

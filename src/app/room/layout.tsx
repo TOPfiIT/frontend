@@ -2,6 +2,7 @@
 import "./editor.css";
 import styles from "./room.module.scss";
 import { styled } from "styled-components";
+import { Toaster } from "react-hot-toast";
 
 const ProgressBarStatus = styled.div`
   width: calc(100% / 3 * 2);
@@ -54,7 +55,10 @@ export default function RoomLayout({
           </div>
         </div>
       </header>
-      <main>{children}</main>
+      <main>
+        {children}
+        <Toaster position="bottom-right" />
+      </main>
     </>
   );
 }
