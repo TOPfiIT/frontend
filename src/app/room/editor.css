@@ -1,0 +1,20 @@
+/* Основная панель с номерами строк */
+.ace_editor .ace_gutter {
+  background: #1a2b25 !important;
+  color: #718096 !important;
+  border-right: 1px solid #4a5568 !important;
+}
+
+/*Отдельная ячейка с номером строки*/
+.ace_editor .ace_gutter-cell {
+  color: #a0aec0 !important;
+}
+/*Активная строка (где курсор)*/
+.ace_editor .ace_gutter-active-line {
+  background-color: #2d3748 !important;
+  color: #e2e8f0 !important;
+}
+/* Подсветка текущей строки в редакторе*/
+.ace_editor .ace_active-line {
+  background-color: rgba(72, 58, 45, 0.3) !important;
+}

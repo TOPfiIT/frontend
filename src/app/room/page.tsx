@@ -1,10 +1,18 @@
+"use client";
+
+import { useState } from "react";
 import styles from "./room.module.scss";
-import Logo from "../../../public/Logo.svg";
+import CodeEditor from "./CodeEditor";
+import LanguageSelector from "./LanguageSelector";
 
-// TOKEN
-export default async function Page() {
+export default function Page() {
+  const [currentLanguage, setCurrentLanguage] = useState("javascript");
+
+  const handleLanguageChange = (language: string) => {
+    setCurrentLanguage(language);
+  };
+
   return (
-
     <main className={styles.main}>
       <div className={styles.taskSpace}>
         <div className={styles.actionBar}>
@@ -30,8 +38,17 @@ export default async function Page() {
               </div>
             </div>
             <div className={styles.taskNameContainer}>
-              <p className={styles.taskName}>Номер и название задания</p>
+              <LanguageSelector
+                onLanguageChange={handleLanguageChange}
+                currentLanguage={currentLanguage}
+              />
             </div>
+          </div>
+          <div className={styles.editorWrapper}>
+            <CodeEditor
+              mode={currentLanguage} // Передаем выбранный язык
+              height="100%"
+            />
           </div>
         </div>
         <div className={styles.result}>
@@ -62,6 +79,5 @@ export default async function Page() {
         </div>
       </div>
     </main>
-
   );
 }

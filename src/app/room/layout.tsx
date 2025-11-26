@@ -1,11 +1,11 @@
-"use client"
+"use client";
+import "./editor.css";
 import styles from "./room.module.scss";
-import { styled } from 'styled-components';
-
+import { styled } from "styled-components";
 
 const ProgressBarStatus = styled.div`
   width: calc(100% / 3 * 2);
-`
+`;
 
 export default function RoomLayout({
   children,
@@ -23,7 +23,7 @@ export default function RoomLayout({
             <div className={styles.nameContainer}>
               <p className={styles.name}>Panopticum</p>
             </div>
-            </div>
+          </div>
           <div className={styles.status}>
             <div className={styles.statusTime}>
               <div className={styles.timerContainer}>
@@ -36,7 +36,9 @@ export default function RoomLayout({
             <div className={styles.statusProgressBar}>
               <div className={styles.progressBar}>
                 <div className={styles.progress}>
-                  <ProgressBarStatus className={styles.progressLine}></ProgressBarStatus>
+                  <ProgressBarStatus
+                    className={styles.progressLine}
+                  ></ProgressBarStatus>
                 </div>
               </div>
               <div className={styles.progressCount}>
