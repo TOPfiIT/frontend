@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import styles from "styles/auth.module.scss";
+import styles from "../styles/auth.module.scss";
 import { register } from "@/api/auth";
 import Link from "next/link";
 import { AxiosError } from "axios";
@@ -44,43 +44,49 @@ export default function RegistrationForm() {
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
-      <label htmlFor="name">
-        <span>Название компании</span>
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          placeholder="Введите название компании..."
-          autoComplete="off"
-          required
-        />
-      </label>
+      <div className={styles.inputsContainers}>
 
-      <label htmlFor="password">
-        <span>Пароль</span>
-        <input
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-          placeholder="Введите пароль..."
-          autoComplete="new-password"
-          required
-        />
-      </label>
+        <label className={styles.inputContainer} htmlFor="name">
+          <span className={styles.inputTitle}>Название компании</span>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="Введите название компании..."
+            autoComplete="off"
+            required
+            className={styles.inputBox}
+          />
+        </label>
 
-      <label htmlFor="privacy">
-        <input type="checkbox" name="privacy" required />
-        <span>
-          Я принимаю условия{" "}
-          <Link className={styles.privacyLink} href="privacy">
-            <u>политики конфиденциальности</u>
-          </Link>
-        </span>
-      </label>
+        <label className={styles.inputContainer} htmlFor="password">
+          <span className={styles.inputTitle}>Пароль</span>
+          <input
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            placeholder="Введите пароль..."
+            autoComplete="new-password"
+            required
+            className={styles.inputBox}
+          />
+        </label>
 
-      <button type="submit">Зарегистрироваться</button>
+        <label className={styles.checkboxContainer} htmlFor="privacy">
+          <input className={styles.policyInput} id="privacy" type="checkbox" name="privacy" required />
+          <span className={styles.customCheckbox}></span>
+          <span className={styles.policyTitle}>
+            Я принимаю условия{" "}
+            <Link className={styles.privacyLink} href="privacy">
+              <u>политики конфиденциальности</u>
+            </Link>
+          </span>
+        </label>
+      </div>
+
+      <button className={styles.submit} type="submit">Зарегистрироваться</button>
     </form>
   );
 }
