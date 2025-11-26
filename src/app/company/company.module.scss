@@ -1,0 +1,296 @@
+@use "../globals.scss" as *;
+
+.header {
+  margin: 5px 200px 15px 200px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+}
+
+.brand,
+.status,
+.topic{
+  display: flex;
+  flex-wrap: wrap;
+  align-self: center;
+}
+
+.logoContainer {
+  width: 40px;
+  height: 40px;
+}
+
+.nameContainer {
+  align-self: center;
+  max-height: 40px;
+}
+
+.name {
+  margin: auto 0 auto 10px;
+  font-size: $title;
+}
+
+.logoutContainer {
+  max-height: 40px;
+}
+
+.companyName {
+    font-weight: $bold;
+}
+
+.divider {
+    width: 2px;
+    height: 30px;
+    border-radius: 50px;
+    background-color: $grey-color;
+    margin: auto 10px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+}
+
+.logout {
+  margin: 5px 0;
+}
+
+.authorization {
+  font-weight: $bold;
+  margin-right: 10px;
+  color: inherit;
+}
+
+// Company Page
+.companyPage {
+    margin-inline: 200px;
+    max-width: calc(1920px - 400px);
+}
+
+// .companyTitle {
+//     font-size: 36px;
+//     margin: 0;
+//     text-align: center;
+//     margin-bottom: 15px;
+// }
+
+.createTitle {
+    margin: 0;
+    font-size: $h1;
+    margin-bottom: 10px;
+}
+
+.createFormContainer {
+    background-color: $light-dark-color;
+    padding: 20px;
+    width: calc(100% - 40px);
+    margin-bottom: 30px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+.inputsBlock {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.inputContainer {
+    display: block;
+    width: calc((100% - 30px) / 3);
+}
+
+.inputTitleContainer {
+    font-size: $title;
+    font-weight: $bold;
+}
+
+.inputTitle {
+    display: inline;
+}
+
+.asterisk {
+    display: inline;
+    color: $active-color;
+}
+
+.inputBox {
+    margin-top: 5px;
+    width: calc(100% - 10px);
+    padding: 14px 0 14px 10px;
+    background-color: $light-dark-color;
+    color: $white-color;
+    border: 1px solid $brand-color;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+.areasBlock {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.areaContainer {
+    width: calc((100% - 30px) / 3);
+}
+
+.areaBox {
+    margin-top: 5px;
+    width: calc(100% - 10px);
+    padding: 14px 0 14px 10px;
+    background-color: $light-dark-color;
+    color: $white-color;
+    border: 1px solid $brand-color;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    height: 110px;
+    resize: none;
+    margin-bottom: 10px;
+}
+
+.submitContainer {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.submit {
+    background-color: $brand-color;
+    font-weight: $bold;
+    border: none;
+    color: $white-color;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    padding: 12px 25px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    margin-left: auto;
+}
+
+.vacancyList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.vacancyCard {
+    width: calc((100% - 40px) / 3 - 40px);
+    padding: 20px;
+    background-color: $light-dark-color;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+.cardMain {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.professionContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.profession {
+    font-weight: $bold;
+    font-size: $title;
+    color: $brand-color;
+    margin: 0;
+}
+
+.members {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
+}
+
+.membersCounter {
+    margin: 0;
+    font-size: $title;
+}
+
+.position {
+    margin: 0;
+    font-size: $title;
+}
+
+.cardInfo {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+}
+
+.duration {
+    margin: 0 5px 0 0;
+}
+
+.moreButton {
+    background-color: $brand-color;
+    font-weight: $bold;
+    border: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 12px 25px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.buttonText {
+    color: $white-color;
+    margin: 0 20px 0 0;
+}
+
+// footer
+.layoutContainer {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    flex: 1;
+}
+
+.footer {
+    margin: 30px 200px 15px 200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: calc(100% - 400px);
+}
+
+.policyLink {
+    margin: 0;
+}
+
+.copyRight {
+    margin: 0;
+}
