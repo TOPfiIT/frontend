@@ -1,14 +1,24 @@
-import styles from "styles/auth.module.scss"; // стили, как в авторизации
+import styles from "app/(auth)/styles/auth.module.scss";
+import RoomForm from "./room.form";
+
 export default async function Page({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const { id: id } = await params;
+  const { id } = await params;
   return (
-    <div className={styles.companyPage}>
-      <button>Назад</button>
-      <h1>Приглашение на вакансию: {id}</h1>
+    <div className={styles.authWrapper}>
+      <div className={styles.authBox}>
+        <div className={styles.baseAuthText}>
+          <h1 className={styles.authTitle}>Подключение к собеседованию</h1>
+          <p className={styles.authSuggestion}>
+            Заполните данную форму, чтобы начать прохождение AI cобеседования от
+            компании {id}
+          </p>
+        </div>
+        <RoomForm />
+      </div>
     </div>
   );
 }

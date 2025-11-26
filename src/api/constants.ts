@@ -19,6 +19,12 @@ export enum ApiRoutes {
   UPDATE_USER = "/users",
   DELETE_USER = "/users",
 
+  // INTERVIEW
+  ROOM_CONNECT = "/interview/api/v1/room",
+  GET_ROOM_WELCOME_SSE = "/interview/api/v1/room/welcome/sse",
+  SEND_SOLUTION = "/interview/api/v1/room/solution",
+  SEND_QUESTION = "/interview/api/v1/room/question",
+
   // CHAT
   GET_CHAT_STREAM = "/chat",
 }

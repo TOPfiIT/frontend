@@ -21,7 +21,11 @@ export default function LoginLayout({
           <div className={styles.topic}>
             <p className={styles.authorization}>Регистрация</p>
             <div className={styles.keyContainer}>
-              <img src="/key.svg" alt="key icon" className={styles.key} />
+              <img
+                src="/register.svg"
+                alt="register icon"
+                className={styles.key}
+              />
             </div>
           </div>
         </Link>
