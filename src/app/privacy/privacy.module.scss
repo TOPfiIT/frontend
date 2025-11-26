@@ -1,3 +1,77 @@
-// HAHAHAH!!!
-p {
+@use "../globals.scss" as *;
+
+// Header
+.header {
+  margin: 5px 200px 15px 200px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+}
+
+.brand,
+.status,
+.topic{
+  display: flex;
+  flex-wrap: wrap;
+  align-self: center;
+}
+
+.logoContainer {
+  width: 40px;
+  height: 40px;
+}
+
+.nameContainer {
+  align-self: center;
+  max-height: 40px;
+}
+
+.name {
+  margin: auto 0 auto 10px;
+  font-size: $title;
+}
+
+.keyContainer {
+  max-height: 40px;
+}
+
+.key {
+  margin: 5px 0;
+}
+
+.authorization {
+  font-weight: $bold;
+  margin-right: 10px;
+  color: inherit;
+}
+
+// Policy
+.privacyContainer {
+  margin-inline: 200px;
+  margin-bottom: 30px;
+}
+.policyHead {
+    font-weight: $bold;
+    font-size: $h1;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.policyTitle {
+    font-weight: $bold;
+    font-size: $title;
+    margin-bottom: 15px;
+    color: $brand-color;
+}
+
+.policySubTitle {
+    font-weight: $bold;
+    font-size: $p;
+    margin-bottom: 10px;
+}
+
+.policyText {
+    font-size: $p;
+    margin-bottom: 5px;
 }
