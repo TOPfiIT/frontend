@@ -2,200 +2,219 @@
 
 // layout styles
 .header {
-    margin: 5px 200px 15px 200px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    position: relative;
+  margin: 5px 200px 15px 200px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
 }
 
-.brand, .status, .topic, .statusTime, .statusProgressBar {
-    display: flex;
-    flex-wrap: wrap;
-    align-self: center;
+.brand,
+.status,
+.topic,
+.statusTime,
+.statusProgressBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-self: center;
 }
 
 .logoContainer {
-    width: 40px;
-    height: 40px;
+  width: 40px;
+  height: 40px;
 }
 
 .nameContainer {
-    align-self: center;
-    max-height: 40px;
+  align-self: center;
+  max-height: 40px;
 }
 
 .name {
-    margin: auto 0 auto 10px;
-    font-size: $title;
+  margin: auto 0 auto 10px;
+  font-size: $title;
 }
 
-
 .keyContainer {
-    max-height: 40px;
+  max-height: 40px;
 }
 
 .key {
-    margin: 5px 0;
+  margin: 5px 0;
 }
 
 .authorization {
-    font-weight: $bold;
-    margin-right: 10px;
+  font-weight: $bold;
+  margin-right: 10px;
+  color: inherit;
 }
 
 // General Styles
 
 .main {
-    height: calc(100vh - 64.094px);
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+  height: calc(100vh - 64.094px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .authWrapper {
-    width: 100%;
+  width: 100%;
 }
 
 .authBox {
-    display: flex;
-    flex-direction: column;
-    background-color: $light-dark-color;
-    max-width: 500px;
-    margin-inline: auto;
-    padding: 30px;
-    border-radius: 15px;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    -ms-border-radius: 15px;
-    -o-border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  background-color: $light-dark-color;
+  max-width: 500px;
+  margin-inline: auto;
+  padding: 30px;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
 }
 
 .baseAuthText {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .authTitle {
-    margin: 0;
-    font-size: $h1;
-    font-weight: $bold;
+  margin: 0;
+  font-size: $h1;
+  font-weight: $bold;
 }
 
 .authSuggestion {
-    margin: 10px 0 0 0;
+  margin: 10px 0 0 0;
 }
 
 .form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .accountLink {
-    color: $active-color;
+  color: $active-color;
 }
 
 .privacyLink {
-    color: $brand-color;
+  color: $brand-color;
 }
 
 .inputsContainers {
-    margin-bottom: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .inputContainer {
-    width: 100%;
+  width: 100%;
 }
 
 .inputTitle {
-    font-size: $title;
-    font-weight: $bold;
+  font-size: $title;
+  font-weight: $bold;
 }
 
 .inputBox {
-    margin-top: 5px;
-    width: 100%;
-    padding: 14px 0 14px 10px;
-    background-color: $light-dark-color;
-    color: $white-color;
-    border: 1px solid $brand-color;
-    border-radius: 15px;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    -ms-border-radius: 15px;
-    -o-border-radius: 15px;
+  margin-top: 5px;
+  width: 100%;
+  padding: 14px 0 14px 10px;
+  background-color: $light-dark-color;
+  color: $white-color;
+  border: 1px solid $brand-color;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
 }
 
 .submit {
-    font-weight: $bold;
-    font-size: $title;
-    color: $white-color;
-    background-color: $brand-color;
-    padding: 13px 0;
-    width: 100%;
-    border: none;
-    border-radius: 15px;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    -ms-border-radius: 15px;
-    -o-border-radius: 15px;
+  font-weight: $bold;
+  font-size: $title;
+  color: $white-color;
+  background-color: $brand-color;
+  padding: 13px 0;
+  width: 100%;
+  border: none;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
 }
 
 .policyInput {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    width: 0;
-    height: 0;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  width: 0;
+  height: 0;
 }
 
 .checkboxContainer {
-    display: flex;
-    align-items: center;
-    position: relative;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
 }
 
 .customCheckbox {
-    width: 20px;
-    height: 20px;
-    border: 2px solid $brand-color;
-    background-color: $white-color;
-    border-radius: 3px;
-    margin-right: 8px;
-    position: relative;
-    transition: all 0.2s ease;
+  width: 20px;
+  height: 20px;
+  border: 2px solid $brand-color;
+  background-color: $white-color;
+  border-radius: 3px;
+  margin-right: 8px;
+  position: relative;
+  transition: all 0.2s ease;
 
-    &::after {
-        content: '';
-        position: absolute;
-        left: 6px;
-        top: 2px;
-        width: 6px;
-        height: 10px;
-        border: solid white;
-        border-width: 0 2px 2px 0;
-        transform: rotate(45deg);
-        opacity: 0;
-        transition: opacity 0.2s ease;
-    }
+  &::after {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
 }
 
 .policyInput:checked ~ .customCheckbox {
-    background-color: $brand-color;
-    border-color: $brand-color;
+  background-color: $brand-color;
+  border-color: $brand-color;
 
-    &::after {
-        opacity: 1;
-    }
+  &::after {
+    opacity: 1;
+  }
 }
 
 .policyInput:hover ~ .customCheckbox {
-    border-color: darken($brand-color, 10%);
+  border-color: darken($brand-color, 10%);
 }
 
 .policyInput:focus ~ .customCheckbox {
-    box-shadow: 0 0 0 2px rgba($brand-color, 0.3);
+  box-shadow: 0 0 0 2px rgba($brand-color, 0.3);
+}
+
+// AI
+
+.noDecoration {
+  text-decoration: none;
+  color: inherit;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &:visited {
+    text-decoration: none;
+    color: inherit;
+  }
 }

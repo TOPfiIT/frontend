@@ -13,50 +13,48 @@ export default function RoomLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
-        <header className={styles.header}>
-          <div className={styles.brand}>
-            <div className={styles.logoContainer}>
-              <img src="/Logo.svg" alt="logo" className={styles.logo} />
+    <>
+      <header className={styles.header}>
+        <div className={styles.brand}>
+          <div className={styles.logoContainer}>
+            <img src="/Logo.svg" alt="logo" className={styles.logo} />
+          </div>
+          <div className={styles.nameContainer}>
+            <p className={styles.name}>Panopticum</p>
+          </div>
+        </div>
+        <div className={styles.status}>
+          <div className={styles.statusTime}>
+            <div className={styles.timerContainer}>
+              <img src="/timer.svg" alt="timer" className={styles.timer} />
             </div>
-            <div className={styles.nameContainer}>
-              <p className={styles.name}>Panopticum</p>
+            <div className={styles.timeContainer}>
+              <p className={styles.time}>Осталось: 20:07</p>
             </div>
           </div>
-          <div className={styles.status}>
-            <div className={styles.statusTime}>
-              <div className={styles.timerContainer}>
-                <img src="/timer.svg" alt="timer" className={styles.timer} />
-              </div>
-              <div className={styles.timeContainer}>
-                <p className={styles.time}>Осталось: 20:07</p>
+          <div className={styles.statusProgressBar}>
+            <div className={styles.progressBar}>
+              <div className={styles.progress}>
+                <ProgressBarStatus
+                  className={styles.progressLine}
+                ></ProgressBarStatus>
               </div>
             </div>
-            <div className={styles.statusProgressBar}>
-              <div className={styles.progressBar}>
-                <div className={styles.progress}>
-                  <ProgressBarStatus
-                    className={styles.progressLine}
-                  ></ProgressBarStatus>
-                </div>
-              </div>
-              <div className={styles.progressCount}>
-                <p className={styles.counter}>2/3</p>
-              </div>
+            <div className={styles.progressCount}>
+              <p className={styles.counter}>2/3</p>
             </div>
           </div>
-          <div className={styles.topic}>
-            <p className={styles.topicName}>Тема собеседования</p>
-            <p className={styles.topicLevel}>Сложность</p>
-            <p className={styles.companyName}>Компания</p>
-            <div className={styles.bookContainer}>
-              <img src="/book.svg" alt="book icon" className={styles.book} />
-            </div>
+        </div>
+        <div className={styles.topic}>
+          <p className={styles.topicName}>Тема собеседования</p>
+          <p className={styles.topicLevel}>Сложность</p>
+          <p className={styles.companyName}>Компания</p>
+          <div className={styles.bookContainer}>
+            <img src="/book.svg" alt="book icon" className={styles.book} />
           </div>
-        </header>
-        <main>{children}</main>
-      </body>
-    </html>
+        </div>
+      </header>
+      <main>{children}</main>
+    </>
   );
 }

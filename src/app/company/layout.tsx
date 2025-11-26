@@ -4,11 +4,9 @@ export default function CompanyLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
-        <main>{children}</main>
-        <footer>Footer: confidential politics</footer>
-      </body>
-    </html>
+    <>
+      <main>{children}</main>
+      <footer>Footer: confidential politics</footer>
+    </>
   );
 }

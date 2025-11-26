@@ -18,4 +18,7 @@ export enum ApiRoutes {
   GET_USER = "/users/:id",
   UPDATE_USER = "/users",
   DELETE_USER = "/users",
+
+  // CHAT
+  GET_CHAT_STREAM = "/chat",
 }
