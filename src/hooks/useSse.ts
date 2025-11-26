@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 // import { useAppSelector } from './store';
-import { API_URL } from "../config";
+// import { API_URL } from "../config";
 import { fetchEventSource } from "@microsoft/fetch-event-source";
 
 type TSseMessage = {
@@ -9,7 +9,7 @@ type TSseMessage = {
   episodes?: Chat[];
 };
 
-const useSse = (method: string) => {
+export default function useSse(method: string) {
   // const token = useAppSelector(store => store.auth.token);
   const [message, setMessage] = useState<TSseMessage | null>(null);
   const API_URL = "http://localhost:8087";
@@ -40,4 +40,4 @@ const useSse = (method: string) => {
   }, [method]); // [method, token]
 
   return message;
-};
+}

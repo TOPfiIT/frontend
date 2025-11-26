@@ -1,16 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./room.module.scss";
 import CodeEditor from "./CodeEditor";
 import LanguageSelector from "./LanguageSelector";
 
+import useSse from "hooks/useSse";
+
 export default function Page() {
   const [currentLanguage, setCurrentLanguage] = useState("javascript");
+  const chat = useSse(`/chat`);
 
   const handleLanguageChange = (language: string) => {
     setCurrentLanguage(language);
   };
+
+  useEffect(() => {
+    if (!chat) return;
+    console.log(chat);
+  }, [chat]);
 
   return (
     <main className={styles.main}>

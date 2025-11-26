@@ -64,7 +64,9 @@ export default function LoginForm() {
           />
         </label>
       </div>
-      <button className={styles.submit} type="submit">Войти</button>
+      <button className={styles.submit} type="submit">
+        Войти
+      </button>
     </form>
   );
 }

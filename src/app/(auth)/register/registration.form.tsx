@@ -4,14 +4,6 @@ import { useState } from "react";
 import styles from "../styles/auth.module.scss";
 import { register } from "@/api/auth";
 import Link from "next/link";
-import { AxiosError } from "axios";
-
-interface ApiErrorResponse {
-  message: string;
-  statusCode: number;
-  error?: string;
-  details?: any;
-}
 
 export default function RegistrationForm() {
   const [formData, setFormData] = useState<AuthRequest>({
@@ -45,7 +37,6 @@ export default function RegistrationForm() {
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
       <div className={styles.inputsContainers}>
-
         <label className={styles.inputContainer} htmlFor="name">
           <span className={styles.inputTitle}>Название компании</span>
           <input
@@ -75,7 +66,13 @@ export default function RegistrationForm() {
         </label>
 
         <label className={styles.checkboxContainer} htmlFor="privacy">
-          <input className={styles.policyInput} id="privacy" type="checkbox" name="privacy" required />
+          <input
+            className={styles.policyInput}
+            id="privacy"
+            type="checkbox"
+            name="privacy"
+            required
+          />
           <span className={styles.customCheckbox}></span>
           <span className={styles.policyTitle}>
             Я принимаю условия{" "}
@@ -86,7 +83,9 @@ export default function RegistrationForm() {
         </label>
       </div>
 
-      <button className={styles.submit} type="submit">Зарегистрироваться</button>
+      <button className={styles.submit} type="submit">
+        Зарегистрироваться
+      </button>
     </form>
   );
 }
