@@ -14,18 +14,18 @@ export default function Page() {
     minLengthToRecord: 2,
 
     onEvent(rec) {
-      if (rec.type === "copy") {
-        toast.success(`Скопировано: "${rec.snippet}"`);
-      }
+      // if (rec.type === "copy") {
+      //   toast.success(`Скопировано: "${rec.snippet}"`);
+      // }
 
       if (rec.type === "paste") {
         if (rec.source === "external") {
           toast.error(`Внешняя вставка (${rec.length} символов)`);
-        } else if (rec.source === "internal") {
-          toast(`Вставлен скопированный текст`);
-        } else {
-          toast(`Вставлено`);
-        }
+        } // else if (rec.source === "internal") {
+        //   toast(`Вставлен скопированный текст`);
+        // } else {
+        //   toast(`Вставлено`);
+        // }
       }
     },
   });
@@ -34,6 +34,7 @@ export default function Page() {
     setCurrentLanguage(language);
   };
 
+  // ОТПРАВИТЬ МЕТРИКИ
   async function finishInterview() {
     const metrics = monitor.getMetrics();
     const resp = await monitor.sendMetrics("/api/submit-metrics");
@@ -111,10 +112,6 @@ export default function Page() {
             </div>
           </div>
         </div>
-      </div>
-
-      <div style={{ position: "fixed", right: 12, top: 12, zIndex: 999 }}>
-        <button onClick={finishInterview}>Отправить метрики</button>
       </div>
     </main>
   );
