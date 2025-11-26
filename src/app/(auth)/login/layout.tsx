@@ -1,3 +1,5 @@
+import styles from "../styles/auth.module.scss";
+
 export default function LoginLayout({
   children,
 }: {
@@ -6,8 +8,23 @@ export default function LoginLayout({
   return (
     <html lang="en">
       <body>
-        <header>This is login header (layout)</header>
-        <main>{children}</main>
+        <header className={styles.header}>
+          <div className={styles.brand}>
+            <div className={styles.logoContainer}>
+              <img src="/Logo.svg" alt="logo" className={styles.logo} />
+            </div>
+            <div className={styles.nameContainer}>
+              <p className={styles.name}>Panopticum</p>
+            </div>
+          </div>
+          <div className={styles.topic}>
+            <p className={styles.authorization}>Регистрация</p>
+            <div className={styles.keyContainer}>
+              <img src="/key.svg" alt="key icon" className={styles.key} />
+            </div>
+          </div>
+        </header>
+        <main className={styles.main}>{children}</main>
       </body>
     </html>
   );

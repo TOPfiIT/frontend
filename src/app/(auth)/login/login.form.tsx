@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import styles from "styles/auth.module.scss";
+import styles from "../styles/auth.module.scss";
 import { login } from "@/api/auth";
 
 export default function LoginForm() {
@@ -31,30 +31,34 @@ export default function LoginForm() {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      <label htmlFor="name">
-        <span>Название компании</span>
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          placeholder="Введите название компании..."
-          required
-        />
-      </label>
+      <div className={styles.inputsContainers}>
+        <label className={styles.inputContainer} htmlFor="name">
+          <span className={styles.inputTitle}>Название компании</span>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="Введите название компании..."
+            required
+            className={styles.inputBox}
+          />
+        </label>
 
-      <label htmlFor="password">
-        <span>Пароль</span>
-        <input
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-          placeholder="Введите пароль..."
-          required
-        />
-      </label>
-      <button type="submit">Войти</button>
+        <label className={styles.inputContainer} htmlFor="password">
+          <span className={styles.inputTitle}>Пароль</span>
+          <input
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            placeholder="Введите пароль..."
+            required
+            className={styles.inputBox}
+          />
+        </label>
+      </div>
+      <button className={styles.submit} type="submit">Войти</button>
     </form>
   );
 }
