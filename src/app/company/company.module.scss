@@ -295,4 +295,198 @@
     margin: 0;
 }
 
-// User form
+// Vacancy Page
+.vacancyPage {
+    margin-inline: 200px;
+}
+
+.vacancyInfo {
+    margin-bottom: 30px;
+}
+
+.infoMain {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-content: center;
+}
+
+.vacancyTitle {
+    margin: 0;
+}
+
+.vacancyTime {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
+    font-weight: $bold;
+    font-size: $title;
+    margin: 0;
+}
+
+.vacancyMembers {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
+    font-weight: $bold;
+    font-size: $title;
+    margin: 0;
+}
+
+.positionContainer {
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.position {
+    font-weight: $bold;
+    font-size: $title;
+}
+
+.vacancyParameters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.parameterTitle {
+    font-size: $title;
+    font-weight: $bold;
+    margin: 0 0 10px 0;
+}
+
+.contentText {
+    margin: 0;
+}
+
+.parameter {
+    background-color: $light-dark-color;
+    min-height: 100px;
+    padding: 20px;
+    width: calc(50% - 40px - 10px);
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+.parameter_long {
+    background-color: $light-dark-color;
+    min-height: 100px;
+    padding: 20px;
+    width: calc(100% - 40px);
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+.intervieweeName {
+    font-size: $h1;
+    font-weight: $bold;
+    margin: 0;
+}
+
+.vacancyBlockTitle {
+    font-size: $h1;
+    font-weight: $bold;
+    color: $brand-color;
+    margin: 0 0 15px 0;
+}
+
+.vacancyTitle {
+    font-size: 36px;
+    font-weight: $bold;
+    color: $brand-color;
+}
+
+.vacancyResults {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+
+.intervieweeCard {
+    background-color: $light-dark-color;
+    padding: 20px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+.intervieweeResume {
+    margin: 5px 0 10px 0 ;
+}
+
+.intervieweeStatContainer, .intervieweeNumbers, .intervieweeTitleContainer, .intervieweeVerdict {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.intervieweeSplit {
+    width: 2px;
+    height: 25px;
+    margin-inline: 10px;
+    background-color: $grey-color;
+}
+
+.intervieweeDivider {
+    width: 100%;
+    height: 2px;
+    background-color: $grey-color;
+    margin: 15px 0 15px 0;
+}
+
+.intervieweeStat {
+    margin: 0;
+}
+
+.intervieweeLogoContainer {
+    margin-right: 5px;
+}
+
+.intervieweeTitle {
+    font-size: $title;
+    font-weight: $bold;
+    margin: 0 0 5px 0;
+}
+
+.intervieweeText {
+    margin: 0;
+}
+
+.intervieweeNumbers {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.intervieweeLevel {
+    margin-top: 15px;
+}
+
+.intervieweeStrengths, .intervieweeWeaknesses, .intervieweeCheats {
+    margin-bottom: 15px;
+}
+
+.intervieweeResumeLink {
+    color: $active-color;
+}
+
+.activeMarking {
+    margin: 0;
+    color: $active-color;
+}
+
+.intervieweeStatResult {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
