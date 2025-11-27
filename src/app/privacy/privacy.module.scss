@@ -11,7 +11,7 @@
 
 .brand,
 .status,
-.topic{
+.topic {
   display: flex;
   flex-wrap: wrap;
   align-self: center;
@@ -52,26 +52,41 @@
   margin-bottom: 30px;
 }
 .policyHead {
-    font-weight: $bold;
-    font-size: $h1;
-    margin-bottom: 20px;
-    text-align: center;
+  font-weight: $bold;
+  font-size: $h1;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .policyTitle {
-    font-weight: $bold;
-    font-size: $title;
-    margin-bottom: 15px;
-    color: $brand-color;
+  font-weight: $bold;
+  font-size: $title;
+  margin-bottom: 15px;
+  color: $brand-color;
 }
 
 .policySubTitle {
-    font-weight: $bold;
-    font-size: $p;
-    margin-bottom: 10px;
+  font-weight: $bold;
+  font-size: $p;
+  margin-bottom: 10px;
 }
 
 .policyText {
-    font-size: $p;
-    margin-bottom: 5px;
+  font-size: $p;
+  margin-bottom: 5px;
+}
+
+// AI
+
+.noDecoration {
+  text-decoration: none;
+  color: inherit;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &:visited {
+    text-decoration: none;
+    color: inherit;
+  }
 }

@@ -7,28 +7,39 @@ const axiosInstance = axios.create({
 });
 
 axiosInstance.interceptors.response.use(
-  (config) => {
-    return config;
+  (response) => {
+    return response;
   },
   async (error) => {
-    const origin = error.config;
+    const originalRequest = error.config;
+
+    // Проверяем условия для рефреша токена
     if (
       error.response &&
-      error.response.status == 401 &&
-      error.config &&
-      !error.config._isRetry
+      error.response.status === 401 &&
+      originalRequest &&
+      !originalRequest._isRetry
     ) {
-      origin._isRetry = true;
+      originalRequest._isRetry = true;
+
       try {
-        await axios.head(
-          `${process.env.NEXT_PUBLIC_API_URL}${ApiRoutes.REFRESH_TOKEN}`,
-          { withCredentials: true }
-        );
-        return axiosInstance.request(origin);
-      } catch (e) {
-        console.log();
+        console.log("Attempting token refresh due to 401...");
+
+        // Используем ТОТ ЖЕ axiosInstance, а не чистый axios
+        await axiosInstance.post(ApiRoutes.REFRESH_TOKEN);
+
+        console.log("Token refreshed successfully, retrying original request");
+        return axiosInstance.request(originalRequest);
+      } catch (refreshError) {
+        console.error("Token refresh failed:", refreshError);
+
+        // Если рефреш не удался, перенаправляем на логин
+        if (typeof window !== "undefined") {
+          window.location.href = "/login";
+        }
       }
     }
+
     throw error;
   }
 );

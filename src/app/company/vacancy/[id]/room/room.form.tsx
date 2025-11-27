@@ -2,22 +2,28 @@
 
 import { useState } from "react";
 import styles from "app/(auth)/styles/auth.module.scss";
-import { connect } from "@/api/interview";
+import { createRoom } from "@/api/interview";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
-export default function RoomForm() {
-  const [formData, setFormData] = useState<RoomRequest>({
-    vacancy_id: "",
+export default function RoomForm({ vacancy_id }: { vacancy_id: string }) {
+  const [roomLoading, setRoomLoading] = useState(false);
+  const [formData, setFormData] = useState<CreateRoomRequest>({
+    vacancy_id: vacancy_id,
     name: "",
     surname: "",
     resume_link: "",
   });
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setRoomLoading(true);
     try {
-      const response = await connect(formData);
+      const response = await createRoom(formData);
       console.log(response);
+      router.push("/room");
+      setRoomLoading(false);
       // Редирект или сообщение об успехе
     } catch (error: any) {
       const msg = error.response?.data.error;
@@ -27,7 +33,7 @@ export default function RoomForm() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData((prev: RoomRequest) => ({
+    setFormData((prev: CreateRoomRequest) => ({
       ...prev,
       [name]: value,
     }));
@@ -64,11 +70,11 @@ export default function RoomForm() {
           />
         </label>
 
-        <label className={styles.inputContainer} htmlFor="resume">
+        <label className={styles.inputContainer} htmlFor="resume_link">
           <span className={styles.inputTitle}>Ссылка на резюме</span>
           <input
             type="text"
-            name="resume"
+            name="resume_link"
             value={formData.resume_link}
             onChange={handleChange}
             placeholder="Прикрепите ссылку..."
@@ -95,10 +101,16 @@ export default function RoomForm() {
           </span>
         </label>
       </div>
-
-      <button className={styles.submit} type="submit">
-        Начать собеседование
-      </button>
+      {!roomLoading && (
+        <button className={styles.submit} type="submit">
+          Начать собеседование
+        </button>
+      )}
+      {roomLoading && (
+        <button className={styles.submit} disabled>
+          Ожидайте...
+        </button>
+      )}
     </form>
   );
 }

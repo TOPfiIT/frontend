@@ -6,6 +6,7 @@ import { register } from "@/api/auth";
 import Link from "next/link";
 
 export default function RegistrationForm() {
+  // Явно указываем, что значения не могут быть undefined
   const [formData, setFormData] = useState<AuthRequest>({
     name: "",
     password: "",
@@ -16,7 +17,6 @@ export default function RegistrationForm() {
     try {
       const response = await register(formData);
       console.log(response);
-      // Редирект или сообщение об успехе
     } catch (error: any) {
       const msg = error.response?.data.error;
       const existsMsg = "[AuthService] company already exists";
@@ -28,7 +28,7 @@ export default function RegistrationForm() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData((prev: AuthRequest) => ({
+    setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
@@ -42,7 +42,8 @@ export default function RegistrationForm() {
           <input
             type="text"
             name="name"
-            value={formData.name}
+            id="name"
+            value={formData.name || ""} // Гарантируем, что не будет undefined
             onChange={handleChange}
             placeholder="Введите название компании..."
             autoComplete="off"
@@ -56,7 +57,8 @@ export default function RegistrationForm() {
           <input
             type="password"
             name="password"
-            value={formData.password}
+            id="password"
+            value={formData.password || ""} // Гарантируем, что не будет undefined
             onChange={handleChange}
             placeholder="Введите пароль..."
             autoComplete="new-password"

@@ -310,3 +310,131 @@
     background-color: #4a5568;
   }
 }
+
+// SSE Интервьюер
+
+// Chat with AI Neural Network Styles
+.status {
+  font-size: 12px;
+  color: $grey-color;
+  margin-left: auto;
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+}
+
+.chatContent {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  cursor: text;
+  background-color: $light-dark-color;
+  border-radius: 0 0 15px 15px;
+  -webkit-border-radius: 0 0 15px 15px;
+  -moz-border-radius: 0 0 15px 15px;
+  -ms-border-radius: 0 0 15px 15px;
+  -o-border-radius: 0 0 15px 15px;
+
+  // Показываем указатель при печатании для возможности пропуска
+  &.typing {
+    cursor: pointer;
+  }
+}
+
+.placeholder {
+  text-align: center;
+  color: $grey-color;
+  font-style: italic;
+  padding: 40px 20px;
+  font-size: 16px;
+}
+
+.message {
+  font-size: 16px;
+  line-height: 1.6;
+  color: $white-color;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+
+  // Плавное появление текста
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.cursor {
+  animation: blink 1s infinite;
+  color: $brand-color;
+  font-weight: $bold;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.error {
+  color: #fc8181;
+  background: rgba(252, 129, 129, 0.1);
+  padding: 12px;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  margin-top: 10px;
+  border-left: 4px solid #fc8181;
+}
+
+// Connection status for SSE
+.connectionStatus {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+}
+
+.statusIndicator {
+  padding: 5px 10px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  font-size: 12px;
+  font-weight: $bold;
+
+  &.connected {
+    background-color: rgba(212, 237, 218, 0.9);
+    color: #155724;
+  }
+
+  &.disconnected {
+    background-color: rgba(248, 215, 218, 0.9);
+    color: #721c24;
+  }
+}
+
+// Адаптивность для мобильных устройств
+@media (max-width: 768px) {
+  .chatContent {
+    padding: 15px;
+  }
+
+  .message {
+    font-size: 14px;
+  }
+
+  .status {
+    font-size: 10px;
+  }
+}

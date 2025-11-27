@@ -17,7 +17,7 @@ export default async function Page({
             компании {id}
           </p>
         </div>
-        <RoomForm />
+        <RoomForm vacancy_id={id} />
       </div>
     </div>
   );

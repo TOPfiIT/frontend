@@ -17,12 +17,18 @@ export default function PrivacyPageLayout({
             <p className={styles.name}>Panopticum</p>
           </div>
         </div>
-        <div className={styles.topic}>
-          <p className={styles.authorization}>Регистрация</p>
-          <div className={styles.keyContainer}>
-            <img src="/security.svg" alt="securicty icon" className={styles.key} />
+        <Link href="/register" className={styles.noDecoration}>
+          <div className={styles.topic}>
+            <p className={styles.authorization}>Регистрация</p>
+            <div className={styles.keyContainer}>
+              <img
+                src="/register.svg"
+                alt="register icon"
+                className={styles.key}
+              />
+            </div>
           </div>
-        </div>
+        </Link>
       </header>
       <main>{children}</main>
     </>

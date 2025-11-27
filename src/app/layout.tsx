@@ -3,15 +3,13 @@ import "./global.css";
 import "./globals.scss";
 
 export default function RootLayout({
-    children,
+  children,
 }: {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }) {
-    return (
+  return (
     <html lang="en">
-        <body>
-            {children}
-        </body>
+      <body>{children}</body>
     </html>
-    );
+  );
 }
