@@ -23,3 +23,15 @@ interface Vacancy {
   duration: number;
   created_at: string;
 }
+
+interface InterviewResults {
+  id: string;
+  vacancy_id: string;
+  name: string;
+  surname: string;
+  resume_link: string;
+  tasks: string[];
+  solutions: string[];
+  chat_history: string[];
+  metrics: string[];
+}
