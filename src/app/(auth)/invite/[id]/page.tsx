@@ -14,8 +14,10 @@ export default async function Page({
         <div className={styles.baseAuthText}>
           <h1 className={styles.authTitle}>Подключение к собеседованию</h1>
           <p className={styles.authSuggestion}>
-            Заполните данную форму, чтобы начать прохождение AI cобеседования от
-            компании {id}
+            {/* Заполните данную форму, чтобы начать прохождение AI cобеседования от
+            компании {id} */}
+            Заполните данную форму, чтобы начать прохождение AI cобеседования на
+            вакансию {id}
           </p>
         </div>
         <RoomForm vacancy_id={id} />

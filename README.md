@@ -11,5 +11,5 @@
 - /company/vacanсy/{id}
 - /privacy
 
-- /company/vacancy/{id}/room - реф ссылка (з)
+- /invite/{id} - реф ссылка (з)
 - /room - само интервью TOKEN

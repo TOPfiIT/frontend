@@ -19,5 +19,8 @@ export enum ApiRoutes {
   DELETE_ROOM = "/interview/api/v1/room",
   GET_ROOM_WELCOME_SSE = "/interview/api/v1/room/welcome/sse",
   SEND_SOLUTION = "/interview/api/v1/room/solution",
+  GET_SOLUTION_RESPONSE_SSE = "/interview/api/v1/room/solution/response/sse",
   SEND_QUESTION = "/interview/api/v1/room/question",
+  GET_QUESTION_RESPONSE_SSE = "/interview/api/v1/room/question/response/sse",
+  GET_TASK_SSE = "/interview/api/v1/room/task/sse",
 }

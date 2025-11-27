@@ -7,39 +7,35 @@ const axiosInstance = axios.create({
 });
 
 axiosInstance.interceptors.response.use(
-  (response) => {
-    return response;
+  (config) => {
+    return config;
   },
   async (error) => {
-    const originalRequest = error.config;
-
-    // Проверяем условия для рефреша токена
+    const origin = error.config;
     if (
       error.response &&
-      error.response.status === 401 &&
-      originalRequest &&
-      !originalRequest._isRetry
+      error.response.status == 401 &&
+      origin &&
+      !origin._isRetry
     ) {
-      originalRequest._isRetry = true;
-
+      origin._isRetry = true;
       try {
-        console.log("Attempting token refresh due to 401...");
-
-        // Используем ТОТ ЖЕ axiosInstance, а не чистый axios
-        await axiosInstance.post(ApiRoutes.REFRESH_TOKEN);
-
-        console.log("Token refreshed successfully, retrying original request");
-        return axiosInstance.request(originalRequest);
-      } catch (refreshError) {
-        console.error("Token refresh failed:", refreshError);
-
-        // Если рефреш не удался, перенаправляем на логин
-        if (typeof window !== "undefined") {
-          window.location.href = "/login";
-        }
+        // await axios.head(
+        //   `${process.env.NEXT_PUBLIC_API_URL}${ApiRoutes.REFRESH_TOKEN}`,
+        //   { withCredentials: true }
+        // );
+        await axiosInstance.post(
+          `${process.env.NEXT_PUBLIC_API_URL}${ApiRoutes.REFRESH_TOKEN}`,
+          { withCredentials: true }
+        );
+        return axiosInstance.request(origin);
+      } catch (e) {
+        console.log(e);
+        // if (typeof window !== "undefined") {
+        //   window.location.href = "/login";
+        // }
       }
     }
-
     throw error;
   }
 );

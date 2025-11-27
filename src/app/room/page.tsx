@@ -7,6 +7,9 @@ import CodeEditor from "./CodeEditor";
 import LanguageSelector from "./LanguageSelector";
 import { useClipboardMonitor } from "hooks/useClipboardMonitor";
 import toast from "react-hot-toast";
+import { sendSolution, sendQuestion } from "@/api/interview";
+
+import { ApiRoutes } from "@/api/constants";
 
 const API_BASE_URL = "http://localhost:80/interview/api/v1";
 const SSE_ENDPOINTS = {
@@ -116,6 +119,19 @@ export default function Page() {
     setIsTyping(false);
   };
 
+  /** ----------- */
+
+  async function nextTask() {
+    // send solution
+    // get response solution SSE
+    // getTaskSSE
+  }
+
+  async function sendQuestion() {
+    // sendQuestion
+    // get response QuestionS SE
+  }
+
   return (
     <main className={styles.main}>
       <div className={styles.taskSpace}>
@@ -126,6 +142,7 @@ export default function Page() {
             </div>
             <div className={styles.barNameContainer}>
               <p className={styles.barName}>Задания</p>
+              {/* Здесь загружаются поочерёдно задания по SSE */}
             </div>
           </div>
         </div>
@@ -133,7 +150,9 @@ export default function Page() {
           <p className={styles.aiOutput}>Output</p>
         </div>
         <div className={styles.next}>
-          <button className={styles.nextButton}>Следующее задание</button>
+          <button onClick={() => nextTask()} className={styles.nextButton}>
+            Следующее задание
+          </button>
         </div>
       </div>
 
@@ -158,6 +177,7 @@ export default function Page() {
 
           <div className={styles.editorWrapper}>
             <CodeEditor mode={currentLanguage} height="100%" />
+            {/* Отсюда нужно текст и язык забрать в sendSolutionRequest */}
           </div>
         </div>
 
@@ -203,6 +223,7 @@ export default function Page() {
               </div>
             ) : (
               <div className={styles.message}>
+                {/* Ответы question response и solution response сюда */}
                 {displayedText}
                 {isTyping && <span className={styles.cursor}>|</span>}
               </div>
@@ -210,10 +231,9 @@ export default function Page() {
 
             {error && <div className={styles.error}>Ошибка: {error}</div>}
           </div>
-          <form className={styles.messageBar} action="">
-            <textarea
-              className={styles.inputArea}/>
-            <button className={styles.submitMessage}>
+          <form onSubmit={() => sendQuestion()} className={styles.messageBar}>
+            <textarea className={styles.inputArea} />
+            <button type="submit" className={styles.submitMessage}>
               <img src="/big-arrow-right.svg" alt="arrow right icon" />
             </button>
           </form>
