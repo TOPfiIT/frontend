@@ -490,3 +490,169 @@
     flex-wrap: wrap;
     gap: 5px;
 }
+
+.intervieweeCard {
+  position: relative;
+  transition: all 0.3s ease;
+  overflow: hidden;
+
+  &.expanded {
+    margin-bottom: 20px;
+  }
+}
+
+.cardHeader {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.expandOverlay {
+  position: relative;
+  height: 90px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba($light-dark-color, 0.1) 20%,
+    rgba($light-dark-color, 0.3) 40%,
+    rgba($light-dark-color, 0.6) 70%,
+    rgba($light-dark-color, 0.9) 100%
+  );
+
+  // Градиентное размытие через маску
+  mask: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 20%,
+    black 80%,
+    transparent 100%
+  );
+
+  backdrop-filter: blur(4px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-top: -35px;
+  padding: 0;
+  opacity: 0;
+  animation: fadeInDown 0.5s ease-out 0.3s forwards;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgba($light-dark-color, 0.1)
+    );
+  }
+}
+
+.expandContent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  z-index: 2;
+  padding: 50px 25px 2px 25px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.expandIcon {
+  font-size: 18px;
+  color: $brand-color;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.expandContent:hover .expandIcon {
+  transform: translateY(2px);
+}
+
+.expandText {
+  margin: 0;
+  color: $brand-color;
+  font-weight: $bold;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.cardDetails {
+  animation: slideDown 0.3s ease-out;
+}
+
+.collapseButton {
+  width: 100%;
+  background: transparent;
+  border: 1px solid $brand-color;
+  color: $brand-color;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: $bold;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: $brand-color;
+    color: $white-color;
+  }
+}
+
+// Анимации
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Адаптивность для мобильных устройств
+@media (max-width: 768px) {
+  .intervieweeStatContainer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .intervieweeSplit {
+    display: none;
+  }
+
+  .expandOverlay {
+    height: 70px;
+  }
+
+  .expandContent {
+    padding: 12px 20px;
+    gap: 8px;
+  }
+
+  .expandText {
+    font-size: 13px;
+    white-space: normal;
+    text-align: center;
+  }
+}
