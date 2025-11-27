@@ -168,12 +168,24 @@
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
+  position: relative;
 }
 
 // Task space
 .taskSpace {
   width: calc(31.25% - 0.78125%);
   margin-left: 0.78125%;
+}
+
+.tasksList {
+  padding: 20px;
+  width: calc(100% - 40px);
+  height: calc(100% - 20px - 58px - 30px - 36px);
+  border-radius: 0 0 15px 15px;
+  -webkit-border-radius: 0 0 15px 15px;
+  -moz-border-radius: 0 0 15px 15px;
+  -ms-border-radius: 0 0 15px 15px;
+  -o-border-radius: 0 0 15px 15px;
 }
 
 // Code space
@@ -327,24 +339,6 @@
   -o-border-radius: 12px;
 }
 
-.chatContent {
-  flex: 1;
-  padding: 20px;
-  overflow-y: auto;
-  cursor: text;
-  background-color: $light-dark-color;
-  border-radius: 0 0 15px 15px;
-  -webkit-border-radius: 0 0 15px 15px;
-  -moz-border-radius: 0 0 15px 15px;
-  -ms-border-radius: 0 0 15px 15px;
-  -o-border-radius: 0 0 15px 15px;
-
-  // Показываем указатель при печатании для возможности пропуска
-  &.typing {
-    cursor: pointer;
-  }
-}
-
 .placeholder {
   text-align: center;
   color: $grey-color;
@@ -437,4 +431,125 @@
   .status {
     font-size: 10px;
   }
+}
+
+
+.resultBox {
+  padding: 20px;
+  width: calc(100% - 40px);
+  height: calc(100% - 20px - 58px);
+  border-radius: 0 0 15px 15px;
+  -webkit-border-radius: 0 0 15px 15px;
+  -moz-border-radius: 0 0 15px 15px;
+  -ms-border-radius: 0 0 15px 15px;
+  -o-border-radius: 0 0 15px 15px;
+}
+
+.aiOutput {
+  margin: 0;
+}
+
+.resultMessage {
+  margin: 0;
+}
+
+.messageBar {
+  position: relative;
+}
+
+.submitMessage {
+  position: absolute;
+  width: 35px;
+  aspect-ratio: 1 / 1;
+  padding: 5px;
+  border: none;
+  background-color: $brand-color;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  top: 30px;
+  right: 30px;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.submitMessage:hover {
+  background-color: darken($brand-color, 10%);
+}
+
+.submitMessage:active {
+  background-color: darken($brand-color, 20%);
+}
+
+.inputArea {
+  margin: 15px;
+  width: calc(100% - 30px - 55px - 20px);
+  height: 150px;
+  padding: 10px 65px 10px 10px;
+  color: $white-color;
+  background-color: $light-dark-color;
+  border: $grey-color 2px solid;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  resize: none;
+}
+
+.chat {
+  height: 100%;
+  background-color: $light-dark-color;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  margin-bottom: 15px;
+
+  display: flex; // Добавлено
+  flex-direction: column; // Добавлено
+  min-height: 0; // Добавлено для правильной работы flex
+}
+
+.chatContent {
+  // flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  height: calc(100% - 204px - 40px);
+  cursor: text;
+  background-color: $light-dark-color;
+  border-radius: 0 0 15px 15px;
+  -webkit-border-radius: 0 0 15px 15px;
+  -moz-border-radius: 0 0 15px 15px;
+  -ms-border-radius: 0 0 15px 15px;
+  -o-border-radius: 0 0 15px 15px;
+
+  // Показываем указатель при печатании для возможности пропуска
+  &.typing {
+    cursor: pointer;
+  }
+}
+
+.next {
+  margin-top: 15px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.nextButton {
+  background-color: $brand-color;
+  border: none;
+  padding: 10px 15px;
+  color: $white-color;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  margin-left: auto;
+  margin-right: 15px;
 }
