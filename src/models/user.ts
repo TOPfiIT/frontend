@@ -10,6 +10,7 @@ interface AuthRequest {
 
 interface CompanySession {
   company_id: string;
+  company_name: string;
   // Подправить
 }
 

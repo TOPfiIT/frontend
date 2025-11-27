@@ -10,11 +10,24 @@ export default function CompanyLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const [company, setCompany] = useState<CompanySession>({
+    company_id: "",
+    company_name: "",
+  });
   const router = useRouter();
   async function userLogout() {
     await logout();
     router.push("/login");
   }
+
+  useEffect(() => {
+    async function fetchCompany() {
+      const data = await getCompany();
+      setCompany(data);
+    }
+
+    fetchCompany();
+  }, []);
 
   return (
     <>
@@ -29,7 +42,7 @@ export default function CompanyLayout({
             </div>
           </div>
           <div className={styles.topic}>
-            <p className={styles.companyName}>Компания</p>
+            <p className={styles.companyName}>{company.company_name}</p>
             <div className={styles.divider}></div>
             <p className={styles.authorization}>Выйти из аккаунта</p>
             <div
