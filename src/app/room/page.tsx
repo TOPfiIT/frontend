@@ -202,6 +202,7 @@ export default function Page() {
             {error && <div className={styles.error}>Ошибка: {error}</div>}
           </div>
         </div>
+        <textarea />
       </div>
     </main>
   );

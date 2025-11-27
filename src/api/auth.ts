@@ -7,7 +7,7 @@ export const login = async (request: AuthRequest) => {
 };
 
 export const logout = async () => {
-  await axiosInstance.delete(ApiRoutes.LOGOUT);
+  await axiosInstance.post(ApiRoutes.LOGOUT);
 };
 
 export const register = async (request: AuthRequest) => {
@@ -19,7 +19,7 @@ export const register = async (request: AuthRequest) => {
 export const getCompany = async () => {
   // .get<GetCompanyResponse>
   const { data } = await axiosInstance.get(ApiRoutes.GET_COMPANY);
-  console.log(data);
+  // console.log(data);
 
   return data;
 };

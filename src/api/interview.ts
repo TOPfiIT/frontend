@@ -1,6 +1,5 @@
 import { ApiRoutes } from "./constants";
 import axiosInstance from "./instance";
-import useSse from "hooks/useSse";
 
 export const createRoom = async (request: CreateRoomRequest) => {
   const { data } = await axiosInstance.post(ApiRoutes.CREATE_ROOM, request);
@@ -9,5 +8,15 @@ export const createRoom = async (request: CreateRoomRequest) => {
 
 export const stopRoom = async () => {
   const { data } = await axiosInstance.delete(ApiRoutes.CREATE_ROOM);
+  return data;
+};
+
+export const sendSolution = async () => {
+  const { data } = await axiosInstance.post(ApiRoutes.SEND_SOLUTION);
+  return data;
+};
+
+export const sendQuestion = async (question: string) => {
+  const { data } = await axiosInstance.post(ApiRoutes.SEND_QUESTION, question);
   return data;
 };

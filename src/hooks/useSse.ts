@@ -47,20 +47,24 @@ export default function useSse(url: string) {
                   const parsedData = JSON.parse(event.data);
                   console.log("📝 Parsed JSON data:", parsedData);
 
-                  // Обрабатываем все возможные поля
-                  if (parsedData.content) {
+                  if (parsedData.type == "message_chunk") {
                     setMessage((prev) => prev + parsedData.content);
-                  } else if (parsedData.message) {
-                    setMessage((prev) => prev + parsedData.message);
-                  } else if (parsedData.text) {
-                    setMessage((prev) => prev + parsedData.text);
-                  } else if (typeof parsedData === "string") {
-                    setMessage((prev) => prev + parsedData);
-                  } else {
-                    // Если объект без понятных полей
-                    const text = JSON.stringify(parsedData, null, 2);
-                    setMessage((prev) => prev + text);
                   }
+
+                  // Обрабатываем все возможные поля
+                  // if (parsedData.content) {
+                  //   setMessage((prev) => prev + parsedData.content);
+                  // } else if (parsedData.message) {
+                  //   setMessage((prev) => prev + parsedData.message);
+                  // } else if (parsedData.text) {
+                  //   setMessage((prev) => prev + parsedData.text);
+                  // } else if (typeof parsedData === "string") {
+                  //   setMessage((prev) => prev + parsedData);
+                  // } else {
+                  //   // Если объект без понятных полей
+                  //   const text = JSON.stringify(parsedData, null, 2);
+                  //   setMessage((prev) => prev + text);
+                  // }
                 } catch (jsonError) {
                   // Если не JSON - используем как plain text
                   console.log("📝 Plain text data:", event.data);
