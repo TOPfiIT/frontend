@@ -295,4 +295,17 @@
     margin: 0;
 }
 
-// User form
+// Vacancy Page
+.vacancyMain {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.vacancyTime {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
+    font-weight: $bold;
+    font-size: $title;
+}
