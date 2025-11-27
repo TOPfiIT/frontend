@@ -129,6 +129,12 @@ export default function Page() {
             </div>
           </div>
         </div>
+        <div className={styles.tasksList}>
+          <p className={styles.aiOutput}>Output</p>
+        </div>
+        <div className={styles.next}>
+          <button className={styles.nextButton}>Следующее задание</button>
+        </div>
       </div>
 
       <div className={styles.codeSpace}>
@@ -166,11 +172,14 @@ export default function Page() {
               </div>
             </div>
           </div>
+          <div className={styles.resultBox}>
+            <p className={styles.resultMessage}>Output</p>
+          </div>
         </div>
       </div>
 
       <div className={styles.chatSpace}>
-        <div className={styles.code}>
+        <div className={styles.chat}>
           <div className={styles.actionBar}>
             <div className={styles.barNameWrapper}>
               <div className={styles.barLogoContainer}>
@@ -201,8 +210,14 @@ export default function Page() {
 
             {error && <div className={styles.error}>Ошибка: {error}</div>}
           </div>
+          <form className={styles.messageBar} action="">
+            <textarea
+              className={styles.inputArea}/>
+            <button className={styles.submitMessage}>
+              <img src="/big-arrow-right.svg" alt="arrow right icon" />
+            </button>
+          </form>
         </div>
-        <textarea />
       </div>
     </main>
   );
