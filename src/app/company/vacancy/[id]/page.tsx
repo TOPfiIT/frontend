@@ -1,12 +1,38 @@
 import styles from "../../company.module.scss";
 import { IntervieweeCard } from "./IntervieweeCard";
-
+// import { useState, useEffect } from "react";
+import { getVacancy } from "@/api/vacancy";
 export default async function Page({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
   const { id: id } = await params;
+  // const vacancy = await getVacancy(id);
+  const vacancy = {
+    id: "",
+    company_id: "",
+    profession: "",
+    position: "",
+    requirements: [],
+    tasks: [],
+    task_ideas: [],
+    metrics: [],
+    is_active: true,
+    duration: 0,
+    created_at: "",
+  };
+  // const [vacancy, setVacancy] = useState<Vacancy>();
+  // const [interviwees, setInterviwees] = useState([]);
+
+  // useEffect(() => {
+  //   async function fetchVacancy() {
+  //     const data = getVacancy(id);
+  //     setVacancy(data);
+  //   }
+
+  //   fetchVacancy();
+  // }, []);
 
   const interviewees = [
     {
@@ -20,7 +46,7 @@ export default async function Page({
       codeQuality: "4/5",
       understanding: "3/5",
       level: "middle",
-      recommendation: "казнить"
+      recommendation: "казнить",
     },
     {
       id: 2,
@@ -33,50 +59,68 @@ export default async function Page({
       codeQuality: "5/5",
       understanding: "4/5",
       level: "senior",
-      recommendation: "нанять"
-    }
+      recommendation: "нанять",
+    },
   ];
 
   return (
     <div className={styles.vacancyPage}>
       <div className={styles.vacancyInfo}>
         <div className={styles.infoMain}>
-          <h1 className={styles.vacancyTitle}>Укротитель питонов</h1>
+          <h1 className={styles.vacancyTitle}>{vacancy.profession}</h1>
           <div className={styles.vacancyTime}>
             <div className={styles.timeContainer}>
-              <img className={styles.timeIcon} src="/timer.svg" alt="timer icon" />
+              <img
+                className={styles.timeIcon}
+                src="/timer.svg"
+                alt="timer icon"
+              />
             </div>
-            <p className={styles.vacancyTime}>1:20:00</p>
+            <p className={styles.vacancyTime}>
+              {Math.floor(vacancy.duration / 60)}:
+              {(vacancy.duration % 60).toString().padStart(2, "0")}:00
+            </p>
           </div>
           <div className={styles.vacancyMembers}>
             <div className={styles.membersContainer}>
-              <img className={styles.membersIcon} src="/members.svg" alt="members icon" />
+              <img
+                className={styles.membersIcon}
+                src="/members.svg"
+                alt="members icon"
+              />
             </div>
-            <p className={styles.vacancyMembers}>52</p>
+            <p className={styles.vacancyMembers}>
+              {/* Замените на актуальные данные о количестве участников */}
+              {interviewees.length}
+            </p>
           </div>
         </div>
         <div className={styles.positionContainer}>
-          <p className={styles.position}>Senior</p>
+          <p className={styles.position}>{vacancy.position}</p>
         </div>
         <div className={styles.vacancyParameters}>
           <div className={styles.parameter}>
             <p className={styles.parameterTitle}>Требования</p>
             <div className={styles.parameterContent}>
-              <p className={styles.contentText}>Должен мощно ловить питонов голыми руками, без варежек, без перчаток, без оборудования. + программировать на листочке на всех языках программирования, иметь личную машину Тьюринга в подвале своего личного котеджа в Крыму, говорить по китайски. В паспорте в графе имя должно стоять DeepSeek.</p>
+              <p className={styles.contentText}>
+                {vacancy.requirements?.join(", ") || "Требования не указаны"}
+              </p>
             </div>
           </div>
           <div className={styles.parameter}>
             <p className={styles.parameterTitle}>Идеи задания</p>
             <div className={styles.parameterContent}>
-              <p className={styles.contentText}>Первое задание - час двадцать бегать по кругу, громко и выразительно шипеть внушая ужас во всех близлежащих питонов, чтобы они знали, кто тут главный.
-  Задание два - жонглировать питонами на протяжениями 10 минут. Минимальное количество снарядов - 10^e, за каждого последующего питона давать респект дикий.
-  На посошок - разработать маленький сервис на FastAPI с 4 бд, нейронкой, фронтом тоже на питоне. Никакого html. На всё минут 10.</p>
+              <p className={styles.contentText}>
+                {vacancy.task_ideas?.join(" ") || "Идеи заданий не указаны"}
+              </p>
             </div>
           </div>
           <div className={styles.parameter_long}>
             <p className={styles.parameterTitle}>Ваши задания</p>
             <div className={styles.parameterContent}>
-              <p className={styles.contentText}>Я хочу пицыы...</p>
+              <p className={styles.contentText}>
+                {vacancy.tasks?.join(" ") || "Задания не назначены"}
+              </p>
             </div>
           </div>
         </div>
@@ -85,10 +129,7 @@ export default async function Page({
       <h2 className={styles.vacancyBlockTitle}>Результаты участников:</h2>
       <div className={styles.vacancyResults}>
         {interviewees.map((interviewee) => (
-          <IntervieweeCard
-            key={interviewee.id}
-            interviewee={interviewee}
-          />
+          <IntervieweeCard key={interviewee.id} interviewee={interviewee} />
         ))}
       </div>
     </div>

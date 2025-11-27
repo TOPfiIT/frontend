@@ -2,7 +2,6 @@ import styles from "app/(auth)/styles/auth.module.scss";
 import RoomForm from "./room.form";
 import "./roomOverride.module.scss";
 
-
 export default async function Page({
   params,
 }: {

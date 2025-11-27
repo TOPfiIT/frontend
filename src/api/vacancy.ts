@@ -14,6 +14,14 @@ export const getCompanyVacancies = async () => {
   return data;
 };
 
+export const getVacancy = async (vacancy_id: string): Promise<Vacancy> => {
+  const { data } = await axiosInstance.get<Vacancy>(
+    ApiRoutes.GET_VACANCY_BY_ID.replace(":vacancy_id", vacancy_id)
+  );
+
+  return data;
+};
+
 export const getInterviewResults = async (vacancy_id: string) => {
   const { data } = await axiosInstance.get(
     ApiRoutes.GET_INTERVIEW_RESULTS_BY_VACANCY_ID.replace(
