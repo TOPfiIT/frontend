@@ -8,6 +8,11 @@ interface AuthRequest {
   password: string;
 }
 
+interface CompanySession {
+  company_id: string;
+  // Подправить
+}
+
 // interface RegisterRequest {
 //   name: string;
 //   surname: string;

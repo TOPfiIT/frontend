@@ -3,18 +3,21 @@
 import { useState } from "react";
 import styles from "../styles/auth.module.scss";
 import { login } from "@/api/auth";
+import { useRouter } from "next/navigation";
 
 export default function LoginForm() {
   const [formData, setFormData] = useState({
     name: "",
     password: "",
   });
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       const response = await login(formData);
       console.log(response);
+      router.push("/company");
       // Редирект или сообщение об успехе
     } catch (error: any) {
       const msg = error.response?.data.error;

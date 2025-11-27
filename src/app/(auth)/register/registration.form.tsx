@@ -4,6 +4,7 @@ import { useState } from "react";
 import styles from "../styles/auth.module.scss";
 import { register } from "@/api/auth";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function RegistrationForm() {
   // Явно указываем, что значения не могут быть undefined
@@ -11,12 +12,14 @@ export default function RegistrationForm() {
     name: "",
     password: "",
   });
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       const response = await register(formData);
       console.log(response);
+      router.push("/company");
     } catch (error: any) {
       const msg = error.response?.data.error;
       const existsMsg = "[AuthService] company already exists";
