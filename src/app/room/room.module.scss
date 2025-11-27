@@ -473,6 +473,10 @@
   right: 30px;
   transition: background-color 0.2s ease;
   cursor: pointer;
+  -webkit-transition: background-color 0.2s ease;
+  -moz-transition: background-color 0.2s ease;
+  -ms-transition: background-color 0.2s ease;
+  -o-transition: background-color 0.2s ease;
 }
 
 .submitMessage:hover {
@@ -538,6 +542,7 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+
 }
 
 .nextButton {
@@ -552,4 +557,14 @@
   -o-border-radius: 5px;
   margin-left: auto;
   margin-right: 15px;
+  transition: background-color 0.5s ease;
+  cursor: pointer;
+}
+
+.nextButton:hover {
+  background-color: darken($brand-color, 10%);
+}
+
+.nextButton:active {
+  background-color: darken($brand-color, 20%);
 }
