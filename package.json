@@ -19,7 +19,8 @@
     "react-dom": "19.2.0",
     "react-hot-toast": "^2.6.0",
     "sass": "^1.94.2",
-    "styled-components": "^6.1.19"
+    "styled-components": "^6.1.19",
+    "yarn": "^1.22.22"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
