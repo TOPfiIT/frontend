@@ -11,7 +11,7 @@ export enum ApiRoutes {
   // VACANCIES
   CREATE_VACANCY = "/vacancy/vacancies",
   GET_VACANCIES = "/vacancy/vacancies/company", // BY COOKIE TOKEN
-  // GET_VACANCY_BY_ID = "/vacancy/vacancies/:vacancy_id",
+  GET_VACANCY_BY_ID = "/vacancy/vacancies/company/:vacancy_id", // cookie: needs company_id
   GET_INTERVIEW_RESULTS_BY_VACANCY_ID = "/vacancy/vacancies/:vacancy_id/interview",
 
   // INTERVIEW
