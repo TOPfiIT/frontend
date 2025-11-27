@@ -24,7 +24,7 @@ export default function RoomLayout({
             <p className={styles.name}>Panopticum</p>
           </div>
         </div>
-        <div className={styles.status}>
+        {/* <div className={styles.status}>
           <div className={styles.statusTime}>
             <div className={styles.timerContainer}>
               <img src="/timer.svg" alt="timer" className={styles.timer} />
@@ -45,7 +45,7 @@ export default function RoomLayout({
               <p className={styles.counter}>2/3</p>
             </div>
           </div>
-        </div>
+        </div> */}
         <div className={styles.topic}>
           <p className={styles.topicName}>Тема собеседования</p>
           <p className={styles.topicLevel}>Сложность</p>
